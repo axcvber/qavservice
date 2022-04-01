@@ -1,0 +1,36 @@
+query Global {
+  me {
+    id
+    username
+    email
+  }
+  global {
+    data {
+      attributes {
+        logo {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        logoTitle
+        googleAnalyticsTag
+        telegramBotToken
+        seo {
+          metaTitle
+          metaDescription
+          keywords
+          canonicalURL
+          metaImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

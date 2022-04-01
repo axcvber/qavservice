@@ -1,0 +1,11 @@
+query Reviews {
+  reviews(sort: "id:desc") {
+    data {
+      id
+      attributes {
+        text
+        username
+      }
+    }
+  }
+}

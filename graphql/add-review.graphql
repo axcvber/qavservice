@@ -1,0 +1,11 @@
+mutation AddReview($username: String!, $text: String!) {
+  createReview(data: { username: $username, text: $text }) {
+    data {
+      id
+      attributes {
+        username
+        text
+      }
+    }
+  }
+}

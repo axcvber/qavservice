@@ -1,0 +1,24 @@
+query Page {
+  page {
+    data {
+      attributes {
+        title {
+          topText
+          middleText
+          bottomText
+        }
+        aboutUs {
+          text
+          image {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

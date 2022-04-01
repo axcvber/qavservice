@@ -1,0 +1,20 @@
+query Services {
+  services(sort: "id:asc") {
+    data {
+      id
+      attributes {
+        title
+        icon {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        description
+        telegramChatId
+      }
+    }
+  }
+}
