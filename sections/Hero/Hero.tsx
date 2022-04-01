@@ -5,12 +5,13 @@ import BGvideo from './BGvideo'
 
 interface IHero {
   title: ComponentTitleTitle
+  bgUrl: string
 }
 
-const Hero: React.FC<IHero> = ({ title }) => {
+const Hero: React.FC<IHero> = ({ title, bgUrl }) => {
   return (
     <StyledHero id='hero'>
-      <BGvideo />
+      <BGvideo bgUrl={bgUrl} />
       <HeroBlock>
         <HeroBlockSubtitle>
           <h4>{title.topText}</h4>

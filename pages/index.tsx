@@ -18,7 +18,7 @@ const Home: NextPage<IPage> = ({ page }) => {
   return (
     <>
       <Header />
-      <Hero title={page.title} />
+      <Hero title={page.title} bgUrl={page.bgVideo.data.attributes.url} />
       <AboutService data={page.aboutUs} />
       <Services />
       <Reviews />

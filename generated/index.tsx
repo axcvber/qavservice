@@ -497,6 +497,7 @@ export type MutationUploadArgs = {
 export type Page = {
   __typename?: 'Page';
   aboutUs: ComponentAboutUsAboutUs;
+  bgVideo: UploadFileEntityResponse;
   createdAt?: Maybe<Scalars['DateTime']>;
   title: ComponentTitleTitle;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -515,6 +516,7 @@ export type PageEntityResponse = {
 
 export type PageInput = {
   aboutUs?: InputMaybe<ComponentAboutUsAboutUsInput>;
+  bgVideo?: InputMaybe<Scalars['ID']>;
   title?: InputMaybe<ComponentTitleTitleInput>;
 };
 
@@ -1062,7 +1064,7 @@ export type UserLoginMutation = { __typename?: 'Mutation', login: { __typename?:
 export type PageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'PageEntityResponse', data?: { __typename?: 'PageEntity', attributes?: { __typename?: 'Page', title: { __typename?: 'ComponentTitleTitle', topText: string, middleText: string, bottomText: string }, aboutUs: { __typename?: 'ComponentAboutUsAboutUs', text: string, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } } | null } | null } | null };
+export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'PageEntityResponse', data?: { __typename?: 'PageEntity', attributes?: { __typename?: 'Page', bgVideo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, title: { __typename?: 'ComponentTitleTitle', topText: string, middleText: string, bottomText: string }, aboutUs: { __typename?: 'ComponentAboutUsAboutUs', text: string, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } } | null } | null } | null };
 
 export type UserRegisterMutationVariables = Exact<{
   username: Scalars['String'];
@@ -1275,6 +1277,13 @@ export const PageDocument = gql`
   page {
     data {
       attributes {
+        bgVideo {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
         title {
           topText
           middleText

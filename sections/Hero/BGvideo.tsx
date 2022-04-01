@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const BGvideo = () => {
+const BGvideo: React.FC<{ bgUrl: string }> = ({ bgUrl }) => {
   return (
     <>
       <VideoBG>
-        <video muted playsInline autoPlay loop poster={'/hero/preview.png'}>
-          <source src='/hero/video.mp4' type='video/mp4' />
+        <video muted playsInline autoPlay loop>
+          <source src={bgUrl} type='video/mp4' />
         </video>
       </VideoBG>
     </>
