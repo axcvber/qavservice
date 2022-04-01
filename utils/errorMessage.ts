@@ -12,6 +12,10 @@ export const errorMessage = (message) => {
       return 'Неверная ссылка'
     case 'Your account email is not confirmed':
       return 'Ваша почта не подтверждена'
+    case 'Your account has been blocked by an administrator':
+      return 'Ваш аккаунт заблокирован'
+    case 'This user is disabled':
+      return 'Этот аккаунт заблокирован'
     default:
       return message
   }
