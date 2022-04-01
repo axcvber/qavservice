@@ -17,18 +17,6 @@ import 'swiper/css/navigation'
 export default function MyApp({ Component, pageProps }: AppProps) {
   const global = pageProps.global as Global
   const userData = pageProps.userData as UsersPermissionsLoginPayload
-  const router = useRouter()
-  const [loading, setLoading] = React.useState(false)
-
-  React.useEffect(() => {
-    router.events.on('routeChangeStart', () => {
-      setLoading(true)
-    })
-    router.events.on('routeChangeComplete', () => {
-      setLoading(false)
-    })
-  }, [router])
-
   return (
     <>
       <SEO
@@ -41,10 +29,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <AppProvider cmsData={global}>
           <AuthProvider userData={userData}>
             <Theme>
-              <>
-                <Loader loading={loading} />
-                <Component {...pageProps} />
-              </>
+              <Component {...pageProps} />
             </Theme>
           </AuthProvider>
         </AppProvider>
