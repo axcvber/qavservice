@@ -1,15 +1,15 @@
 module.exports = {
-  // async headers() {
-  //   return [
-  //     {
-  //       source: '/',
-  //       headers: [
-  //         { key: 'Access-Control-Allow-Credentials', value: 'true' },
-  //         { key: 'Access-Control-Allow-Origin', value: '*' },
-  //       ],
-  //     },
-  //   ]
-  // },
+  async headers() {
+    return [
+      {
+        source: '/',
+        headers: [
+          { key: 'Access-Control-Allow-Credentials', value: 'true' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+        ],
+      },
+    ]
+  },
   env: {
     API: 'https://qavservice-admin.herokuapp.com',
   },
