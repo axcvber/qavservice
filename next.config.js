@@ -11,7 +11,7 @@ module.exports = {
     ]
   },
   env: {
-    API: 'https://qavservice-admin.herokuapp.com',
+    API: 'https://qavservice.herokuapp.com',
   },
   webpack(config) {
     config.module.rules.push({
