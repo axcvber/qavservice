@@ -12,31 +12,31 @@ const BackgroundImage: React.FC<IBackgroundImage> = ({ variant }) => {
       case 'left-bottom':
         return (
           <LeftBottom>
-            <Image width={1000} height={1000} src='/star.png' alt='star' />
+            <Image priority width={1000} height={1000} src='/star.png' alt='star' />
           </LeftBottom>
         )
       case 'right-top':
         return (
           <RightTop>
-            <Image width={1000} height={1000} src='/star.png' alt='star' />
+            <Image priority width={1000} height={1000} src='/star.png' alt='star' />
           </RightTop>
         )
       case 'left-top':
         return (
           <LeftTop>
-            <Image width={1000} height={1000} src='/star.png' alt='star' />
+            <Image priority width={1000} height={1000} src='/star.png' alt='star' />
           </LeftTop>
         )
       case 'right-bottom':
         return (
           <RightBottom>
-            <Image width={1000} height={1000} src='/star.png' alt='star' />
+            <Image priority width={1000} height={1000} src='/star.png' alt='star' />
           </RightBottom>
         )
       case 'end':
         return (
           <End>
-            <Image width={1000} height={1000} src='/star.png' alt='star' />
+            <Image priority width={1000} height={1000} src='/star.png' alt='star' />
           </End>
         )
       default:
