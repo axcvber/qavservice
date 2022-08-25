@@ -4,6 +4,11 @@ import normalize from 'styled-normalize'
 export const GlobalStyles = createGlobalStyle`
 ${normalize}
 
+@font-face {
+  font-family: 'Batman Forever Alternate Cyr';
+  src: url("/fonts/batmanforeveralternatecyr.ttf");
+}
+
 * {
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
@@ -16,27 +21,21 @@ ${normalize}
 }
 
 ::-webkit-scrollbar-track {
-  background-color: ${({ theme }) => theme.palette.bg.primary};
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
+  background: ${({ theme }) => theme.colors.purple[0]};
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: ${({ theme }) => theme.palette.primary};
-  border-radius: 8px;
-  border: 3.5px solid ${({ theme }) => theme.palette.bg.primary};;
+  background: ${({ theme }) => theme.colors.turquoise};
+  border-radius: 10px;
+  border: 3px solid ${({ theme }) => theme.colors.purple[0]};
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #7a3ed0;
-}
-
 
 body { 
-  ${({ theme }) => theme.fonts.OswaldRegular};
+  font-family: "Batman Forever Alternate Cyr", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  background-color: #000;
+  background-color: #7F43FF;
 }
 
 ul {
@@ -55,4 +54,11 @@ video {
   max-width: 100%;
   height: auto;
 }
+
+button {
+  border: none;
+  outline: none;
+  line-height: 1;
+}
+
 `

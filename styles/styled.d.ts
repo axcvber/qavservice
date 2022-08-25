@@ -2,6 +2,20 @@ import 'styled-components'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    colors: {
+      pink: string
+      purple: Array<string>
+      turquoise: string
+      white: string
+      error: string
+    }
+    space: any
+
+    fontSizes: any
+    breakpoints: any
+    radii: any
+    lineHeights: any
+
     fonts: {
       OswaldLight: FlattenSimpleInterpolation
       OswaldRegular: FlattenSimpleInterpolation
@@ -10,19 +24,7 @@ declare module 'styled-components' {
       PlayRegular: FlattenSimpleInterpolation
       PlayBold: FlattenSimpleInterpolation
     }
-    palette: {
-      primary: string
-      bg: {
-        primary: string
-        secondary: string
-      }
-      text: {
-        primary: string
-        secondary: string
-      }
-      error: string
-      success: string
-    }
+
     breakpoints: {
       xs: string
       sm: string
@@ -32,5 +34,6 @@ declare module 'styled-components' {
     }
     transition: string
     shadow: string
+    line: any
   }
 }

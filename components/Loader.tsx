@@ -27,7 +27,7 @@ const Loader: React.FC<{ loading: boolean }> = ({ loading }) => {
 export default Loader
 
 const LoaderTitle = styled.h1`
-  color: ${({ theme }) => theme.palette.text.secondary};
+  color: red;
   ${({ theme }) => theme.fonts.OswaldBold};
   text-transform: uppercase;
   font-size: 20px;
@@ -83,19 +83,19 @@ const CSSLoader = styled.div`
       left: 0%;
       top: 0%;
       animation: ${cssloadRotateOne} 1.15s linear infinite;
-      border-bottom: 3px solid ${({ theme }) => theme.palette.primary};
+      border-bottom: 3px solid red;
     }
     &.cssload-two {
       right: 0%;
       top: 0%;
       animation: ${cssloadRotateTwo} 1.15s linear infinite;
-      border-right: 3px solid ${({ theme }) => theme.palette.primary};
+      border-right: 3px solid red;
     }
     &.cssload-three {
       right: 0%;
       bottom: 0%;
       animation: ${cssloadRotateThree} 1.15s linear infinite;
-      border-top: 3px solid ${({ theme }) => theme.palette.primary};
+      border-top: 3px solid red;
     }
   }
 `

@@ -15,8 +15,10 @@ const RSLink: React.FC<IRSLink> = ({ to, children, onClick }) => {
       to={to}
       ignoreCancelEvents
       smooth={true}
-      offset={-63}
+      offset={-85}
       duration={600}
+      spy={true}
+      activeClass='active'
     >
       {children}
     </Link>

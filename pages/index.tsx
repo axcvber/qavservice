@@ -1,29 +1,32 @@
 import { GetServerSideProps, NextPage } from 'next'
 import React from 'react'
-import Header from '../components/Header'
-import UserWidget from '../components/UserWidget'
-import { Page, PageDocument, PageQuery } from '../generated'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
+import { Page, PageDocument, PageQuery, ServiceEntity } from '../generated'
 import client from '../graphql'
 import AboutService from '../sections/AboutService'
 import Form from '../sections/Form'
 import Hero from '../sections/Hero/Hero'
+import Operators from '../sections/operators/Operators'
 import Reviews from '../sections/Reviews'
 import Services from '../sections/Services'
 
 interface IPage {
   page: Page
+  services: Array<ServiceEntity>
 }
 
-const Home: NextPage<IPage> = ({ page }) => {
+const Home: NextPage<IPage> = ({ page, services }) => {
   return (
     <>
-      <Header />
-      <Hero title={page.title} bgUrl={page.bgVideo.data.attributes.url} />
-      <AboutService data={page.aboutUs} />
-      <Services />
-      <Reviews />
-      <Form />
-      <UserWidget />
+      <Navbar />
+      <Hero data={page.hero} />
+      <AboutService data={page.aboutService} />
+      <Services services={services} />
+      <Operators data={page.operators} />
+      <Reviews data={page.reviews} />
+      <Form services={services} />
+      <Footer data={page.footer} />
     </>
   )
 }
@@ -35,6 +38,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       page: data.page.data.attributes,
+      services: data.services.data,
     },
   }
 }

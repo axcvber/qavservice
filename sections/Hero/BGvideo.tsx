@@ -1,10 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
+import Box from '../../styles/layout/Box'
 
-const BGvideo: React.FC<{ bgUrl: string }> = ({ bgUrl }) => {
+interface IBGvideo {
+  bgUrl: string
+  mobileBgUrl: string
+}
+
+const BGvideo: React.FC<IBGvideo> = ({ bgUrl, mobileBgUrl }) => {
+  const matches = useMediaQuery('622px')
+  console.log('matches', matches)
+
+  const videoUrl = matches ? bgUrl : mobileBgUrl
+
   return (
     <>
-      <VideoBG>
+      <VideoBG display={{ default: 'block', md: 'none' }}>
+        <video muted playsInline autoPlay loop>
+          <source src={mobileBgUrl} type='video/mp4' />
+        </video>
+      </VideoBG>
+      <VideoBG display={{ default: 'none', md: 'block' }}>
         <video muted playsInline autoPlay loop>
           <source src={bgUrl} type='video/mp4' />
         </video>
@@ -15,7 +32,7 @@ const BGvideo: React.FC<{ bgUrl: string }> = ({ bgUrl }) => {
 
 export default BGvideo
 
-const VideoBG = styled.div`
+const VideoBG = styled(Box)`
   background-size: cover;
   position: absolute;
   top: 0;
@@ -23,23 +40,7 @@ const VideoBG = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0) 40%,
-        rgba(0, 0, 0, 0) 60%,
-        rgba(0, 0, 0, 1) 100%
-      ),
-      rgba(0, 0, 0, 0.2);
-  }
+  z-index: -1;
 
   video {
     position: absolute;

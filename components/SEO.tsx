@@ -5,11 +5,11 @@ import { ComponentSeoSeo } from '../generated'
 interface ISEO {
   seo: ComponentSeoSeo
   logo: string
-  logoTitle: string
+  favicon: string
   gTag: string
 }
 
-const SEO: React.FC<ISEO> = ({ seo, logo, logoTitle, gTag }) => {
+const SEO: React.FC<ISEO> = ({ seo, logo, gTag, favicon }) => {
   return (
     <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${gTag}`} strategy='afterInteractive' />
@@ -35,14 +35,14 @@ const SEO: React.FC<ISEO> = ({ seo, logo, logoTitle, gTag }) => {
         additionalLinkTags={[
           {
             rel: 'shortcut icon',
-            href: logo,
+            href: favicon,
           },
         ]}
         openGraph={{
           type: 'website',
           locale: 'ru',
           url: seo.canonicalURL,
-          site_name: logoTitle,
+          site_name: 'Q.A.V',
         }}
         twitter={{
           handle: '@handle',

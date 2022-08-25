@@ -19,8 +19,6 @@ export type Scalars = {
   DateTime: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
-  /** The `Long` scalar type represents 52-bit integers */
-  Long: any;
   /** The `Upload` scalar type represents a file upload. */
   Upload: any;
 };
@@ -32,6 +30,7 @@ export type BooleanFilterInput = {
   containsi?: InputMaybe<Scalars['Boolean']>;
   endsWith?: InputMaybe<Scalars['Boolean']>;
   eq?: InputMaybe<Scalars['Boolean']>;
+  eqi?: InputMaybe<Scalars['Boolean']>;
   gt?: InputMaybe<Scalars['Boolean']>;
   gte?: InputMaybe<Scalars['Boolean']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
@@ -48,16 +47,205 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type ComponentAboutUsAboutUs = {
-  __typename?: 'ComponentAboutUsAboutUs';
+export type Client = {
+  __typename?: 'Client';
+  category: Scalars['String'];
+  createdAt?: Maybe<Scalars['DateTime']>;
+  message?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
+  processed?: Maybe<Scalars['Boolean']>;
+  service: Scalars['String'];
+  telegram: Scalars['String'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type ClientEntity = {
+  __typename?: 'ClientEntity';
+  attributes?: Maybe<Client>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type ClientEntityResponse = {
+  __typename?: 'ClientEntityResponse';
+  data?: Maybe<ClientEntity>;
+};
+
+export type ClientEntityResponseCollection = {
+  __typename?: 'ClientEntityResponseCollection';
+  data: Array<ClientEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type ClientFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ClientFiltersInput>>>;
+  category?: InputMaybe<StringFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  message?: InputMaybe<StringFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ClientFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ClientFiltersInput>>>;
+  processed?: InputMaybe<BooleanFilterInput>;
+  service?: InputMaybe<StringFilterInput>;
+  telegram?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ClientInput = {
+  category?: InputMaybe<Scalars['String']>;
+  message?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
+  processed?: InputMaybe<Scalars['Boolean']>;
+  service?: InputMaybe<Scalars['String']>;
+  telegram?: InputMaybe<Scalars['String']>;
+};
+
+export type ComponentAboutServiceAboutService = {
+  __typename?: 'ComponentAboutServiceAboutService';
   id: Scalars['ID'];
   image: UploadFileEntityResponse;
+  telegramLink: Scalars['String'];
   text: Scalars['String'];
 };
 
-export type ComponentAboutUsAboutUsInput = {
+export type ComponentAboutServiceAboutServiceInput = {
   id?: InputMaybe<Scalars['ID']>;
   image?: InputMaybe<Scalars['ID']>;
+  telegramLink?: InputMaybe<Scalars['String']>;
+  text?: InputMaybe<Scalars['String']>;
+};
+
+export type ComponentFooterFoooter = {
+  __typename?: 'ComponentFooterFoooter';
+  id: Scalars['ID'];
+  partners: Array<Maybe<ComponentFooterPartners>>;
+  qrCode: UploadFileEntityResponse;
+};
+
+
+export type ComponentFooterFoooterPartnersArgs = {
+  filters?: InputMaybe<ComponentFooterPartnersFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ComponentFooterFoooterInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  partners?: InputMaybe<Array<InputMaybe<ComponentFooterPartnersInput>>>;
+  qrCode?: InputMaybe<Scalars['ID']>;
+};
+
+export type ComponentFooterPartners = {
+  __typename?: 'ComponentFooterPartners';
+  id: Scalars['ID'];
+  nickname: Scalars['String'];
+  partnerLink: Scalars['String'];
+  text?: Maybe<Scalars['String']>;
+};
+
+export type ComponentFooterPartnersFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentFooterPartnersFiltersInput>>>;
+  nickname?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentFooterPartnersFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentFooterPartnersFiltersInput>>>;
+  partnerLink?: InputMaybe<StringFilterInput>;
+  text?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentFooterPartnersInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  nickname?: InputMaybe<Scalars['String']>;
+  partnerLink?: InputMaybe<Scalars['String']>;
+  text?: InputMaybe<Scalars['String']>;
+};
+
+export type ComponentHeroHero = {
+  __typename?: 'ComponentHeroHero';
+  bgVideo: UploadFileEntityResponse;
+  bgVideoMobile: UploadFileEntityResponse;
+  id: Scalars['ID'];
+};
+
+export type ComponentHeroHeroInput = {
+  bgVideo?: InputMaybe<Scalars['ID']>;
+  bgVideoMobile?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+export type ComponentOperatorsGuarantorBanner = {
+  __typename?: 'ComponentOperatorsGuarantorBanner';
+  avatar: UploadFileEntityResponse;
+  chatLink: Scalars['String'];
+  id: Scalars['ID'];
+  nickname: Scalars['String'];
+  reviewsLink: Scalars['String'];
+  text: Scalars['String'];
+};
+
+export type ComponentOperatorsGuarantorBannerInput = {
+  avatar?: InputMaybe<Scalars['ID']>;
+  chatLink?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  nickname?: InputMaybe<Scalars['String']>;
+  reviewsLink?: InputMaybe<Scalars['String']>;
+  text?: InputMaybe<Scalars['String']>;
+};
+
+export type ComponentOperatorsOperatorWidget = {
+  __typename?: 'ComponentOperatorsOperatorWidget';
+  avatar: UploadFileEntityResponse;
+  id: Scalars['ID'];
+  nickname: Scalars['String'];
+  text: Scalars['String'];
+};
+
+export type ComponentOperatorsOperatorWidgetFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentOperatorsOperatorWidgetFiltersInput>>>;
+  nickname?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentOperatorsOperatorWidgetFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentOperatorsOperatorWidgetFiltersInput>>>;
+  text?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentOperatorsOperatorWidgetInput = {
+  avatar?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['ID']>;
+  nickname?: InputMaybe<Scalars['String']>;
+  text?: InputMaybe<Scalars['String']>;
+};
+
+export type ComponentOperatorsOperators = {
+  __typename?: 'ComponentOperatorsOperators';
+  guarantorBanner: ComponentOperatorsGuarantorBanner;
+  id: Scalars['ID'];
+  operatorWidget: Array<Maybe<ComponentOperatorsOperatorWidget>>;
+};
+
+
+export type ComponentOperatorsOperatorsOperatorWidgetArgs = {
+  filters?: InputMaybe<ComponentOperatorsOperatorWidgetFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ComponentOperatorsOperatorsInput = {
+  guarantorBanner?: InputMaybe<ComponentOperatorsGuarantorBannerInput>;
+  id?: InputMaybe<Scalars['ID']>;
+  operatorWidget?: InputMaybe<Array<InputMaybe<ComponentOperatorsOperatorWidgetInput>>>;
+};
+
+export type ComponentReviewsReviews = {
+  __typename?: 'ComponentReviewsReviews';
+  id: Scalars['ID'];
+  image: UploadFileEntityResponse;
+  reviewsLink: Scalars['String'];
+  text: Scalars['String'];
+};
+
+export type ComponentReviewsReviewsInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  image?: InputMaybe<Scalars['ID']>;
+  reviewsLink?: InputMaybe<Scalars['String']>;
   text?: InputMaybe<Scalars['String']>;
 };
 
@@ -80,19 +268,22 @@ export type ComponentSeoSeoInput = {
   metaTitle?: InputMaybe<Scalars['String']>;
 };
 
-export type ComponentTitleTitle = {
-  __typename?: 'ComponentTitleTitle';
-  bottomText: Scalars['String'];
+export type ComponentServicesSubservices = {
+  __typename?: 'ComponentServicesSubservices';
   id: Scalars['ID'];
-  middleText: Scalars['String'];
-  topText: Scalars['String'];
+  name: Scalars['String'];
 };
 
-export type ComponentTitleTitleInput = {
-  bottomText?: InputMaybe<Scalars['String']>;
+export type ComponentServicesSubservicesFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentServicesSubservicesFiltersInput>>>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentServicesSubservicesFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentServicesSubservicesFiltersInput>>>;
+};
+
+export type ComponentServicesSubservicesInput = {
   id?: InputMaybe<Scalars['ID']>;
-  middleText?: InputMaybe<Scalars['String']>;
-  topText?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
 };
 
 export type DateTimeFilterInput = {
@@ -102,6 +293,7 @@ export type DateTimeFilterInput = {
   containsi?: InputMaybe<Scalars['DateTime']>;
   endsWith?: InputMaybe<Scalars['DateTime']>;
   eq?: InputMaybe<Scalars['DateTime']>;
+  eqi?: InputMaybe<Scalars['DateTime']>;
   gt?: InputMaybe<Scalars['DateTime']>;
   gte?: InputMaybe<Scalars['DateTime']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
@@ -131,6 +323,7 @@ export type FloatFilterInput = {
   containsi?: InputMaybe<Scalars['Float']>;
   endsWith?: InputMaybe<Scalars['Float']>;
   eq?: InputMaybe<Scalars['Float']>;
+  eqi?: InputMaybe<Scalars['Float']>;
   gt?: InputMaybe<Scalars['Float']>;
   gte?: InputMaybe<Scalars['Float']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
@@ -147,16 +340,15 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = ComponentAboutUsAboutUs | ComponentSeoSeo | ComponentTitleTitle | Global | I18NLocale | Page | Review | Service | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Client | ComponentAboutServiceAboutService | ComponentFooterFoooter | ComponentFooterPartners | ComponentHeroHero | ComponentOperatorsGuarantorBanner | ComponentOperatorsOperatorWidget | ComponentOperatorsOperators | ComponentReviewsReviews | ComponentSeoSeo | ComponentServicesSubservices | Global | I18NLocale | Page | Service | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Global = {
   __typename?: 'Global';
   createdAt?: Maybe<Scalars['DateTime']>;
+  favicon: UploadFileEntityResponse;
   googleAnalyticsTag: Scalars['String'];
   logo: UploadFileEntityResponse;
-  logoTitle: Scalars['String'];
   seo: ComponentSeoSeo;
-  telegramBotToken: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -172,11 +364,10 @@ export type GlobalEntityResponse = {
 };
 
 export type GlobalInput = {
+  favicon?: InputMaybe<Scalars['ID']>;
   googleAnalyticsTag?: InputMaybe<Scalars['String']>;
   logo?: InputMaybe<Scalars['ID']>;
-  logoTitle?: InputMaybe<Scalars['String']>;
   seo?: InputMaybe<ComponentSeoSeoInput>;
-  telegramBotToken?: InputMaybe<Scalars['String']>;
 };
 
 export type I18NLocale = {
@@ -222,6 +413,7 @@ export type IdFilterInput = {
   containsi?: InputMaybe<Scalars['ID']>;
   endsWith?: InputMaybe<Scalars['ID']>;
   eq?: InputMaybe<Scalars['ID']>;
+  eqi?: InputMaybe<Scalars['ID']>;
   gt?: InputMaybe<Scalars['ID']>;
   gte?: InputMaybe<Scalars['ID']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
@@ -245,6 +437,7 @@ export type IntFilterInput = {
   containsi?: InputMaybe<Scalars['Int']>;
   endsWith?: InputMaybe<Scalars['Int']>;
   eq?: InputMaybe<Scalars['Int']>;
+  eqi?: InputMaybe<Scalars['Int']>;
   gt?: InputMaybe<Scalars['Int']>;
   gte?: InputMaybe<Scalars['Int']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
@@ -268,6 +461,7 @@ export type JsonFilterInput = {
   containsi?: InputMaybe<Scalars['JSON']>;
   endsWith?: InputMaybe<Scalars['JSON']>;
   eq?: InputMaybe<Scalars['JSON']>;
+  eqi?: InputMaybe<Scalars['JSON']>;
   gt?: InputMaybe<Scalars['JSON']>;
   gte?: InputMaybe<Scalars['JSON']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
@@ -284,46 +478,27 @@ export type JsonFilterInput = {
   startsWith?: InputMaybe<Scalars['JSON']>;
 };
 
-export type LongFilterInput = {
-  and?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
-  between?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
-  contains?: InputMaybe<Scalars['Long']>;
-  containsi?: InputMaybe<Scalars['Long']>;
-  endsWith?: InputMaybe<Scalars['Long']>;
-  eq?: InputMaybe<Scalars['Long']>;
-  gt?: InputMaybe<Scalars['Long']>;
-  gte?: InputMaybe<Scalars['Long']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
-  lt?: InputMaybe<Scalars['Long']>;
-  lte?: InputMaybe<Scalars['Long']>;
-  ne?: InputMaybe<Scalars['Long']>;
-  not?: InputMaybe<LongFilterInput>;
-  notContains?: InputMaybe<Scalars['Long']>;
-  notContainsi?: InputMaybe<Scalars['Long']>;
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
-  notNull?: InputMaybe<Scalars['Boolean']>;
-  null?: InputMaybe<Scalars['Boolean']>;
-  or?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
-  startsWith?: InputMaybe<Scalars['Long']>;
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
-  createReview?: Maybe<ReviewEntityResponse>;
+  /** Change user password. Confirm with the current password. */
+  changePassword?: Maybe<UsersPermissionsLoginPayload>;
+  createClient?: Maybe<ClientEntityResponse>;
   createService?: Maybe<ServiceEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
+  createUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Create a new role */
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteClient?: Maybe<ClientEntityResponse>;
   deleteGlobal?: Maybe<GlobalEntityResponse>;
   deletePage?: Maybe<PageEntityResponse>;
-  deleteReview?: Maybe<ReviewEntityResponse>;
   deleteService?: Maybe<ServiceEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
+  deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Delete an existing role */
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
-  /** Update an existing user */
+  /** Delete an existing user */
   deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   /** Confirm an email users email address */
   emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
@@ -336,12 +511,13 @@ export type Mutation = {
   removeFile?: Maybe<UploadFileEntityResponse>;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
+  updateClient?: Maybe<ClientEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateGlobal?: Maybe<GlobalEntityResponse>;
   updatePage?: Maybe<PageEntityResponse>;
-  updateReview?: Maybe<ReviewEntityResponse>;
   updateService?: Maybe<ServiceEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
+  updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Update an existing role */
   updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
   /** Update an existing user */
@@ -350,8 +526,15 @@ export type Mutation = {
 };
 
 
-export type MutationCreateReviewArgs = {
-  data: ReviewInput;
+export type MutationChangePasswordArgs = {
+  currentPassword: Scalars['String'];
+  password: Scalars['String'];
+  passwordConfirmation: Scalars['String'];
+};
+
+
+export type MutationCreateClientArgs = {
+  data: ClientInput;
 };
 
 
@@ -365,6 +548,11 @@ export type MutationCreateUploadFileArgs = {
 };
 
 
+export type MutationCreateUploadFolderArgs = {
+  data: UploadFolderInput;
+};
+
+
 export type MutationCreateUsersPermissionsRoleArgs = {
   data: UsersPermissionsRoleInput;
 };
@@ -375,7 +563,7 @@ export type MutationCreateUsersPermissionsUserArgs = {
 };
 
 
-export type MutationDeleteReviewArgs = {
+export type MutationDeleteClientArgs = {
   id: Scalars['ID'];
 };
 
@@ -386,6 +574,11 @@ export type MutationDeleteServiceArgs = {
 
 
 export type MutationDeleteUploadFileArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type MutationDeleteUploadFolderArgs = {
   id: Scalars['ID'];
 };
 
@@ -440,6 +633,12 @@ export type MutationResetPasswordArgs = {
 };
 
 
+export type MutationUpdateClientArgs = {
+  data: ClientInput;
+  id: Scalars['ID'];
+};
+
+
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
   info?: InputMaybe<FileInfoInput>;
@@ -456,12 +655,6 @@ export type MutationUpdatePageArgs = {
 };
 
 
-export type MutationUpdateReviewArgs = {
-  data: ReviewInput;
-  id: Scalars['ID'];
-};
-
-
 export type MutationUpdateServiceArgs = {
   data: ServiceInput;
   id: Scalars['ID'];
@@ -470,6 +663,12 @@ export type MutationUpdateServiceArgs = {
 
 export type MutationUpdateUploadFileArgs = {
   data: UploadFileInput;
+  id: Scalars['ID'];
+};
+
+
+export type MutationUpdateUploadFolderArgs = {
+  data: UploadFolderInput;
   id: Scalars['ID'];
 };
 
@@ -496,10 +695,12 @@ export type MutationUploadArgs = {
 
 export type Page = {
   __typename?: 'Page';
-  aboutUs: ComponentAboutUsAboutUs;
-  bgVideo: UploadFileEntityResponse;
+  aboutService: ComponentAboutServiceAboutService;
   createdAt?: Maybe<Scalars['DateTime']>;
-  title: ComponentTitleTitle;
+  footer: ComponentFooterFoooter;
+  hero: ComponentHeroHero;
+  operators: ComponentOperatorsOperators;
+  reviews: ComponentReviewsReviews;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -515,9 +716,11 @@ export type PageEntityResponse = {
 };
 
 export type PageInput = {
-  aboutUs?: InputMaybe<ComponentAboutUsAboutUsInput>;
-  bgVideo?: InputMaybe<Scalars['ID']>;
-  title?: InputMaybe<ComponentTitleTitleInput>;
+  aboutService?: InputMaybe<ComponentAboutServiceAboutServiceInput>;
+  footer?: InputMaybe<ComponentFooterFoooterInput>;
+  hero?: InputMaybe<ComponentHeroHeroInput>;
+  operators?: InputMaybe<ComponentOperatorsOperatorsInput>;
+  reviews?: InputMaybe<ComponentReviewsReviewsInput>;
 };
 
 export type Pagination = {
@@ -537,21 +740,35 @@ export type PaginationArg = {
 
 export type Query = {
   __typename?: 'Query';
+  client?: Maybe<ClientEntityResponse>;
+  clients?: Maybe<ClientEntityResponseCollection>;
   global?: Maybe<GlobalEntityResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
   page?: Maybe<PageEntityResponse>;
-  review?: Maybe<ReviewEntityResponse>;
-  reviews?: Maybe<ReviewEntityResponseCollection>;
   service?: Maybe<ServiceEntityResponse>;
   services?: Maybe<ServiceEntityResponseCollection>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
+  uploadFolder?: Maybe<UploadFolderEntityResponse>;
+  uploadFolders?: Maybe<UploadFolderEntityResponseCollection>;
   usersPermissionsRole?: Maybe<UsersPermissionsRoleEntityResponse>;
   usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
   usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
   usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
+};
+
+
+export type QueryClientArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryClientsArgs = {
+  filters?: InputMaybe<ClientFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
@@ -562,18 +779,6 @@ export type QueryI18NLocaleArgs = {
 
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryReviewArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryReviewsArgs = {
-  filters?: InputMaybe<ReviewFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
@@ -598,6 +803,18 @@ export type QueryUploadFileArgs = {
 
 export type QueryUploadFilesArgs = {
   filters?: InputMaybe<UploadFileFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryUploadFolderArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryUploadFoldersArgs = {
+  filters?: InputMaybe<UploadFolderFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
@@ -631,55 +848,20 @@ export type ResponseCollectionMeta = {
   pagination: Pagination;
 };
 
-export type Review = {
-  __typename?: 'Review';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  text: Scalars['String'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-  username: Scalars['String'];
-};
-
-export type ReviewEntity = {
-  __typename?: 'ReviewEntity';
-  attributes?: Maybe<Review>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type ReviewEntityResponse = {
-  __typename?: 'ReviewEntityResponse';
-  data?: Maybe<ReviewEntity>;
-};
-
-export type ReviewEntityResponseCollection = {
-  __typename?: 'ReviewEntityResponseCollection';
-  data: Array<ReviewEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type ReviewFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ReviewFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<ReviewFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ReviewFiltersInput>>>;
-  text?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  username?: InputMaybe<StringFilterInput>;
-};
-
-export type ReviewInput = {
-  text?: InputMaybe<Scalars['String']>;
-  username?: InputMaybe<Scalars['String']>;
-};
-
 export type Service = {
   __typename?: 'Service';
   createdAt?: Maybe<Scalars['DateTime']>;
-  description: Scalars['String'];
   icon: UploadFileEntityResponse;
-  telegramChatId: Scalars['Long'];
+  subservices: Array<Maybe<ComponentServicesSubservices>>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type ServiceSubservicesArgs = {
+  filters?: InputMaybe<ComponentServicesSubservicesFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type ServiceEntity = {
@@ -702,19 +884,17 @@ export type ServiceEntityResponseCollection = {
 export type ServiceFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ServiceFiltersInput>>>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
-  description?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   not?: InputMaybe<ServiceFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ServiceFiltersInput>>>;
-  telegramChatId?: InputMaybe<LongFilterInput>;
+  subservices?: InputMaybe<ComponentServicesSubservicesFiltersInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type ServiceInput = {
-  description?: InputMaybe<Scalars['String']>;
   icon?: InputMaybe<Scalars['ID']>;
-  telegramChatId?: InputMaybe<Scalars['Long']>;
+  subservices?: InputMaybe<Array<InputMaybe<ComponentServicesSubservicesInput>>>;
   title?: InputMaybe<Scalars['String']>;
 };
 
@@ -725,6 +905,7 @@ export type StringFilterInput = {
   containsi?: InputMaybe<Scalars['String']>;
   endsWith?: InputMaybe<Scalars['String']>;
   eq?: InputMaybe<Scalars['String']>;
+  eqi?: InputMaybe<Scalars['String']>;
   gt?: InputMaybe<Scalars['String']>;
   gte?: InputMaybe<Scalars['String']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -785,6 +966,8 @@ export type UploadFileFiltersInput = {
   caption?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   ext?: InputMaybe<StringFilterInput>;
+  folder?: InputMaybe<UploadFolderFiltersInput>;
+  folderPath?: InputMaybe<StringFilterInput>;
   formats?: InputMaybe<JsonFilterInput>;
   hash?: InputMaybe<StringFilterInput>;
   height?: InputMaybe<IntFilterInput>;
@@ -806,6 +989,8 @@ export type UploadFileInput = {
   alternativeText?: InputMaybe<Scalars['String']>;
   caption?: InputMaybe<Scalars['String']>;
   ext?: InputMaybe<Scalars['String']>;
+  folder?: InputMaybe<Scalars['ID']>;
+  folderPath?: InputMaybe<Scalars['String']>;
   formats?: InputMaybe<Scalars['JSON']>;
   hash?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Int']>;
@@ -817,6 +1002,83 @@ export type UploadFileInput = {
   size?: InputMaybe<Scalars['Float']>;
   url?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['Int']>;
+};
+
+export type UploadFileRelationResponseCollection = {
+  __typename?: 'UploadFileRelationResponseCollection';
+  data: Array<UploadFileEntity>;
+};
+
+export type UploadFolder = {
+  __typename?: 'UploadFolder';
+  children?: Maybe<UploadFolderRelationResponseCollection>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  files?: Maybe<UploadFileRelationResponseCollection>;
+  name: Scalars['String'];
+  parent?: Maybe<UploadFolderEntityResponse>;
+  path: Scalars['String'];
+  pathId: Scalars['Int'];
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type UploadFolderChildrenArgs = {
+  filters?: InputMaybe<UploadFolderFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type UploadFolderFilesArgs = {
+  filters?: InputMaybe<UploadFileFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type UploadFolderEntity = {
+  __typename?: 'UploadFolderEntity';
+  attributes?: Maybe<UploadFolder>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type UploadFolderEntityResponse = {
+  __typename?: 'UploadFolderEntityResponse';
+  data?: Maybe<UploadFolderEntity>;
+};
+
+export type UploadFolderEntityResponseCollection = {
+  __typename?: 'UploadFolderEntityResponseCollection';
+  data: Array<UploadFolderEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type UploadFolderFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<UploadFolderFiltersInput>>>;
+  children?: InputMaybe<UploadFolderFiltersInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  files?: InputMaybe<UploadFileFiltersInput>;
+  id?: InputMaybe<IdFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<UploadFolderFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<UploadFolderFiltersInput>>>;
+  parent?: InputMaybe<UploadFolderFiltersInput>;
+  path?: InputMaybe<StringFilterInput>;
+  pathId?: InputMaybe<IntFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type UploadFolderInput = {
+  children?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  files?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  parent?: InputMaybe<Scalars['ID']>;
+  path?: InputMaybe<Scalars['String']>;
+  pathId?: InputMaybe<Scalars['Int']>;
+};
+
+export type UploadFolderRelationResponseCollection = {
+  __typename?: 'UploadFolderRelationResponseCollection';
+  data: Array<UploadFolderEntity>;
 };
 
 export type UsersPermissionsCreateRolePayload = {
@@ -1033,148 +1295,19 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
-export type AddReviewMutationVariables = Exact<{
-  username: Scalars['String'];
-  text: Scalars['String'];
-}>;
-
-
-export type AddReviewMutation = { __typename?: 'Mutation', createReview?: { __typename?: 'ReviewEntityResponse', data?: { __typename?: 'ReviewEntity', id?: string | null, attributes?: { __typename?: 'Review', username: string, text: string } | null } | null } | null };
-
-export type ForgotPasswordMutationVariables = Exact<{
-  email: Scalars['String'];
-}>;
-
-
-export type ForgotPasswordMutation = { __typename?: 'Mutation', forgotPassword?: { __typename?: 'UsersPermissionsPasswordPayload', ok: boolean } | null };
-
 export type GlobalQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GlobalQuery = { __typename?: 'Query', me?: { __typename?: 'UsersPermissionsMe', id: string, username: string, email?: string | null } | null, global?: { __typename?: 'GlobalEntityResponse', data?: { __typename?: 'GlobalEntity', attributes?: { __typename?: 'Global', logoTitle: string, googleAnalyticsTag: string, telegramBotToken: string, logo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, seo: { __typename?: 'ComponentSeoSeo', metaTitle: string, metaDescription: string, keywords: string, canonicalURL: string, metaImage: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } } | null } | null } | null };
-
-export type UserLoginMutationVariables = Exact<{
-  identifier: Scalars['String'];
-  password: Scalars['String'];
-}>;
-
-
-export type UserLoginMutation = { __typename?: 'Mutation', login: { __typename?: 'UsersPermissionsLoginPayload', jwt?: string | null, user: { __typename?: 'UsersPermissionsMe', id: string, username: string, email?: string | null } } };
+export type GlobalQuery = { __typename?: 'Query', global?: { __typename?: 'GlobalEntityResponse', data?: { __typename?: 'GlobalEntity', attributes?: { __typename?: 'Global', googleAnalyticsTag: string, logo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, favicon: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, seo: { __typename?: 'ComponentSeoSeo', metaTitle: string, metaDescription: string, keywords: string, canonicalURL: string, metaImage: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } } | null } | null } | null };
 
 export type PageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'PageEntityResponse', data?: { __typename?: 'PageEntity', attributes?: { __typename?: 'Page', bgVideo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, title: { __typename?: 'ComponentTitleTitle', topText: string, middleText: string, bottomText: string }, aboutUs: { __typename?: 'ComponentAboutUsAboutUs', text: string, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } } | null } | null } | null };
-
-export type UserRegisterMutationVariables = Exact<{
-  username: Scalars['String'];
-  email: Scalars['String'];
-  password: Scalars['String'];
-}>;
+export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'PageEntityResponse', data?: { __typename?: 'PageEntity', attributes?: { __typename?: 'Page', hero: { __typename?: 'ComponentHeroHero', bgVideo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, bgVideoMobile: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } }, aboutService: { __typename?: 'ComponentAboutServiceAboutService', text: string, telegramLink: string, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } }, operators: { __typename?: 'ComponentOperatorsOperators', operatorWidget: Array<{ __typename?: 'ComponentOperatorsOperatorWidget', id: string, text: string, nickname: string, avatar: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } | null>, guarantorBanner: { __typename?: 'ComponentOperatorsGuarantorBanner', nickname: string, text: string, chatLink: string, reviewsLink: string, avatar: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } }, reviews: { __typename?: 'ComponentReviewsReviews', text: string, reviewsLink: string, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } }, footer: { __typename?: 'ComponentFooterFoooter', partners: Array<{ __typename?: 'ComponentFooterPartners', id: string, text?: string | null, nickname: string, partnerLink: string } | null>, qrCode: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } } | null } | null } | null, services?: { __typename?: 'ServiceEntityResponseCollection', data: Array<{ __typename?: 'ServiceEntity', id?: string | null, attributes?: { __typename?: 'Service', title: string, icon: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null }, subservices: Array<{ __typename?: 'ComponentServicesSubservices', id: string, name: string } | null> } | null }> } | null };
 
 
-export type UserRegisterMutation = { __typename?: 'Mutation', register: { __typename?: 'UsersPermissionsLoginPayload', jwt?: string | null, user: { __typename?: 'UsersPermissionsMe', username: string, email?: string | null } } };
-
-export type ResetPasswordMutationVariables = Exact<{
-  password: Scalars['String'];
-  passwordConfirmation: Scalars['String'];
-  code: Scalars['String'];
-}>;
-
-
-export type ResetPasswordMutation = { __typename?: 'Mutation', resetPassword?: { __typename?: 'UsersPermissionsLoginPayload', jwt?: string | null, user: { __typename?: 'UsersPermissionsMe', id: string, username: string, email?: string | null } } | null };
-
-export type ReviewsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ReviewsQuery = { __typename?: 'Query', reviews?: { __typename?: 'ReviewEntityResponseCollection', data: Array<{ __typename?: 'ReviewEntity', id?: string | null, attributes?: { __typename?: 'Review', text: string, username: string } | null }> } | null };
-
-export type ServicesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ServicesQuery = { __typename?: 'Query', services?: { __typename?: 'ServiceEntityResponseCollection', data: Array<{ __typename?: 'ServiceEntity', id?: string | null, attributes?: { __typename?: 'Service', title: string, description: string, telegramChatId: any, icon: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } | null }> } | null };
-
-
-export const AddReviewDocument = gql`
-    mutation AddReview($username: String!, $text: String!) {
-  createReview(data: {username: $username, text: $text}) {
-    data {
-      id
-      attributes {
-        username
-        text
-      }
-    }
-  }
-}
-    `;
-export type AddReviewMutationFn = Apollo.MutationFunction<AddReviewMutation, AddReviewMutationVariables>;
-
-/**
- * __useAddReviewMutation__
- *
- * To run a mutation, you first call `useAddReviewMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useAddReviewMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [addReviewMutation, { data, loading, error }] = useAddReviewMutation({
- *   variables: {
- *      username: // value for 'username'
- *      text: // value for 'text'
- *   },
- * });
- */
-export function useAddReviewMutation(baseOptions?: Apollo.MutationHookOptions<AddReviewMutation, AddReviewMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<AddReviewMutation, AddReviewMutationVariables>(AddReviewDocument, options);
-      }
-export type AddReviewMutationHookResult = ReturnType<typeof useAddReviewMutation>;
-export type AddReviewMutationResult = Apollo.MutationResult<AddReviewMutation>;
-export type AddReviewMutationOptions = Apollo.BaseMutationOptions<AddReviewMutation, AddReviewMutationVariables>;
-export const ForgotPasswordDocument = gql`
-    mutation ForgotPassword($email: String!) {
-  forgotPassword(email: $email) {
-    ok
-  }
-}
-    `;
-export type ForgotPasswordMutationFn = Apollo.MutationFunction<ForgotPasswordMutation, ForgotPasswordMutationVariables>;
-
-/**
- * __useForgotPasswordMutation__
- *
- * To run a mutation, you first call `useForgotPasswordMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useForgotPasswordMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [forgotPasswordMutation, { data, loading, error }] = useForgotPasswordMutation({
- *   variables: {
- *      email: // value for 'email'
- *   },
- * });
- */
-export function useForgotPasswordMutation(baseOptions?: Apollo.MutationHookOptions<ForgotPasswordMutation, ForgotPasswordMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ForgotPasswordMutation, ForgotPasswordMutationVariables>(ForgotPasswordDocument, options);
-      }
-export type ForgotPasswordMutationHookResult = ReturnType<typeof useForgotPasswordMutation>;
-export type ForgotPasswordMutationResult = Apollo.MutationResult<ForgotPasswordMutation>;
-export type ForgotPasswordMutationOptions = Apollo.BaseMutationOptions<ForgotPasswordMutation, ForgotPasswordMutationVariables>;
 export const GlobalDocument = gql`
     query Global {
-  me {
-    id
-    username
-    email
-  }
   global {
     data {
       attributes {
@@ -1185,14 +1318,17 @@ export const GlobalDocument = gql`
             }
           }
         }
-        logoTitle
+        favicon {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
         googleAnalyticsTag
-        telegramBotToken
         seo {
           metaTitle
           metaDescription
-          keywords
-          canonicalURL
           metaImage {
             data {
               attributes {
@@ -1200,6 +1336,8 @@ export const GlobalDocument = gql`
               }
             }
           }
+          keywords
+          canonicalURL
         }
       }
     }
@@ -1233,63 +1371,28 @@ export function useGlobalLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Glo
 export type GlobalQueryHookResult = ReturnType<typeof useGlobalQuery>;
 export type GlobalLazyQueryHookResult = ReturnType<typeof useGlobalLazyQuery>;
 export type GlobalQueryResult = Apollo.QueryResult<GlobalQuery, GlobalQueryVariables>;
-export const UserLoginDocument = gql`
-    mutation UserLogin($identifier: String!, $password: String!) {
-  login(input: {identifier: $identifier, password: $password}) {
-    jwt
-    user {
-      id
-      username
-      email
-    }
-  }
-}
-    `;
-export type UserLoginMutationFn = Apollo.MutationFunction<UserLoginMutation, UserLoginMutationVariables>;
-
-/**
- * __useUserLoginMutation__
- *
- * To run a mutation, you first call `useUserLoginMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUserLoginMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [userLoginMutation, { data, loading, error }] = useUserLoginMutation({
- *   variables: {
- *      identifier: // value for 'identifier'
- *      password: // value for 'password'
- *   },
- * });
- */
-export function useUserLoginMutation(baseOptions?: Apollo.MutationHookOptions<UserLoginMutation, UserLoginMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UserLoginMutation, UserLoginMutationVariables>(UserLoginDocument, options);
-      }
-export type UserLoginMutationHookResult = ReturnType<typeof useUserLoginMutation>;
-export type UserLoginMutationResult = Apollo.MutationResult<UserLoginMutation>;
-export type UserLoginMutationOptions = Apollo.BaseMutationOptions<UserLoginMutation, UserLoginMutationVariables>;
 export const PageDocument = gql`
     query Page {
   page {
     data {
       attributes {
-        bgVideo {
-          data {
-            attributes {
-              url
+        hero {
+          bgVideo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          bgVideoMobile {
+            data {
+              attributes {
+                url
+              }
             }
           }
         }
-        title {
-          topText
-          middleText
-          bottomText
-        }
-        aboutUs {
+        aboutService {
           text
           image {
             data {
@@ -1299,6 +1402,84 @@ export const PageDocument = gql`
               }
             }
           }
+          telegramLink
+        }
+        operators {
+          operatorWidget {
+            id
+            avatar {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+            text
+            nickname
+          }
+          guarantorBanner {
+            avatar {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+            nickname
+            text
+            chatLink
+            reviewsLink
+          }
+        }
+        reviews {
+          image {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+          text
+          reviewsLink
+        }
+        footer {
+          partners {
+            id
+            text
+            nickname
+            partnerLink
+          }
+          qrCode {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  services(sort: "id:asc") {
+    data {
+      id
+      attributes {
+        title
+        icon {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        subservices {
+          id
+          name
         }
       }
     }
@@ -1332,175 +1513,3 @@ export function usePageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PageQ
 export type PageQueryHookResult = ReturnType<typeof usePageQuery>;
 export type PageLazyQueryHookResult = ReturnType<typeof usePageLazyQuery>;
 export type PageQueryResult = Apollo.QueryResult<PageQuery, PageQueryVariables>;
-export const UserRegisterDocument = gql`
-    mutation UserRegister($username: String!, $email: String!, $password: String!) {
-  register(input: {username: $username, email: $email, password: $password}) {
-    jwt
-    user {
-      username
-      email
-    }
-  }
-}
-    `;
-export type UserRegisterMutationFn = Apollo.MutationFunction<UserRegisterMutation, UserRegisterMutationVariables>;
-
-/**
- * __useUserRegisterMutation__
- *
- * To run a mutation, you first call `useUserRegisterMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUserRegisterMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [userRegisterMutation, { data, loading, error }] = useUserRegisterMutation({
- *   variables: {
- *      username: // value for 'username'
- *      email: // value for 'email'
- *      password: // value for 'password'
- *   },
- * });
- */
-export function useUserRegisterMutation(baseOptions?: Apollo.MutationHookOptions<UserRegisterMutation, UserRegisterMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UserRegisterMutation, UserRegisterMutationVariables>(UserRegisterDocument, options);
-      }
-export type UserRegisterMutationHookResult = ReturnType<typeof useUserRegisterMutation>;
-export type UserRegisterMutationResult = Apollo.MutationResult<UserRegisterMutation>;
-export type UserRegisterMutationOptions = Apollo.BaseMutationOptions<UserRegisterMutation, UserRegisterMutationVariables>;
-export const ResetPasswordDocument = gql`
-    mutation ResetPassword($password: String!, $passwordConfirmation: String!, $code: String!) {
-  resetPassword(
-    password: $password
-    passwordConfirmation: $passwordConfirmation
-    code: $code
-  ) {
-    jwt
-    user {
-      id
-      username
-      email
-    }
-  }
-}
-    `;
-export type ResetPasswordMutationFn = Apollo.MutationFunction<ResetPasswordMutation, ResetPasswordMutationVariables>;
-
-/**
- * __useResetPasswordMutation__
- *
- * To run a mutation, you first call `useResetPasswordMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useResetPasswordMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [resetPasswordMutation, { data, loading, error }] = useResetPasswordMutation({
- *   variables: {
- *      password: // value for 'password'
- *      passwordConfirmation: // value for 'passwordConfirmation'
- *      code: // value for 'code'
- *   },
- * });
- */
-export function useResetPasswordMutation(baseOptions?: Apollo.MutationHookOptions<ResetPasswordMutation, ResetPasswordMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<ResetPasswordMutation, ResetPasswordMutationVariables>(ResetPasswordDocument, options);
-      }
-export type ResetPasswordMutationHookResult = ReturnType<typeof useResetPasswordMutation>;
-export type ResetPasswordMutationResult = Apollo.MutationResult<ResetPasswordMutation>;
-export type ResetPasswordMutationOptions = Apollo.BaseMutationOptions<ResetPasswordMutation, ResetPasswordMutationVariables>;
-export const ReviewsDocument = gql`
-    query Reviews {
-  reviews(sort: "id:desc") {
-    data {
-      id
-      attributes {
-        text
-        username
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useReviewsQuery__
- *
- * To run a query within a React component, call `useReviewsQuery` and pass it any options that fit your needs.
- * When your component renders, `useReviewsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useReviewsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useReviewsQuery(baseOptions?: Apollo.QueryHookOptions<ReviewsQuery, ReviewsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ReviewsQuery, ReviewsQueryVariables>(ReviewsDocument, options);
-      }
-export function useReviewsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ReviewsQuery, ReviewsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ReviewsQuery, ReviewsQueryVariables>(ReviewsDocument, options);
-        }
-export type ReviewsQueryHookResult = ReturnType<typeof useReviewsQuery>;
-export type ReviewsLazyQueryHookResult = ReturnType<typeof useReviewsLazyQuery>;
-export type ReviewsQueryResult = Apollo.QueryResult<ReviewsQuery, ReviewsQueryVariables>;
-export const ServicesDocument = gql`
-    query Services {
-  services(sort: "id:asc") {
-    data {
-      id
-      attributes {
-        title
-        icon {
-          data {
-            attributes {
-              url
-              alternativeText
-            }
-          }
-        }
-        description
-        telegramChatId
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useServicesQuery__
- *
- * To run a query within a React component, call `useServicesQuery` and pass it any options that fit your needs.
- * When your component renders, `useServicesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useServicesQuery({
- *   variables: {
- *   },
- * });
- */
-export function useServicesQuery(baseOptions?: Apollo.QueryHookOptions<ServicesQuery, ServicesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ServicesQuery, ServicesQueryVariables>(ServicesDocument, options);
-      }
-export function useServicesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ServicesQuery, ServicesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ServicesQuery, ServicesQueryVariables>(ServicesDocument, options);
-        }
-export type ServicesQueryHookResult = ReturnType<typeof useServicesQuery>;
-export type ServicesLazyQueryHookResult = ReturnType<typeof useServicesLazyQuery>;
-export type ServicesQueryResult = Apollo.QueryResult<ServicesQuery, ServicesQueryVariables>;

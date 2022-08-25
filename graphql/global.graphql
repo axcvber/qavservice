@@ -1,9 +1,4 @@
 query Global {
-  me {
-    id
-    username
-    email
-  }
   global {
     data {
       attributes {
@@ -14,14 +9,17 @@ query Global {
             }
           }
         }
-        logoTitle
+        favicon {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
         googleAnalyticsTag
-        telegramBotToken
         seo {
           metaTitle
           metaDescription
-          keywords
-          canonicalURL
           metaImage {
             data {
               attributes {
@@ -29,6 +27,8 @@ query Global {
               }
             }
           }
+          keywords
+          canonicalURL
         }
       }
     }

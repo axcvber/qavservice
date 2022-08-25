@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import image from '../public/404.png'
-import { Button } from '../styles'
+import Button from '../styles/layout/Button'
+import { Container } from '../styles/layout/Container'
+import Text from '../styles/layout/Text'
 
 const Custom404 = () => {
   const router = useRouter()
@@ -13,12 +13,16 @@ const Custom404 = () => {
 
   return (
     <Wrapper>
-      <Content>
-        <h2>404 | Страница не найдена</h2>
-        <Button onClick={handleToHome} variant='contained'>
-          на главную
-        </Button>
-      </Content>
+      <Container>
+        <Content>
+          <Text as='h2' fontSize='xl' textAlign='center'>
+            404 | Страница не найдена
+          </Text>
+          <Button onClick={handleToHome} variant='contained'>
+            на главную
+          </Button>
+        </Content>
+      </Container>
     </Wrapper>
   )
 }

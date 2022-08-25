@@ -2,19 +2,23 @@ query Page {
   page {
     data {
       attributes {
-        bgVideo {
-          data {
-            attributes {
-              url
+        hero {
+          bgVideo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          bgVideoMobile {
+            data {
+              attributes {
+                url
+              }
             }
           }
         }
-        title {
-          topText
-          middleText
-          bottomText
-        }
-        aboutUs {
+        aboutService {
           text
           image {
             data {
@@ -24,6 +28,84 @@ query Page {
               }
             }
           }
+          telegramLink
+        }
+        operators {
+          operatorWidget {
+            id
+            avatar {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+            text
+            nickname
+          }
+          guarantorBanner {
+            avatar {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+            nickname
+            text
+            chatLink
+            reviewsLink
+          }
+        }
+        reviews {
+          image {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+          text
+          reviewsLink
+        }
+        footer {
+          partners {
+            id
+            text
+            nickname
+            partnerLink
+          }
+          qrCode {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  services(sort: "id:asc") {
+    data {
+      id
+      attributes {
+        title
+        icon {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        subservices {
+          id
+          name
         }
       }
     }
