@@ -25,7 +25,7 @@ const Services: React.FC<IServices> = ({ services }) => {
   }
 
   return (
-    <Box id='services' my={{ default: 5, lg: 7 }} position='relative'>
+    <Box as='section' id='services' my={{ default: 5, lg: 7 }} position='relative'>
       <Container>
         <Flex justifyContent='center'>
           <Heading line='bottom' textAlign='center' mb={2} fontSize={[5, 6]}>

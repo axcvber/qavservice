@@ -34,6 +34,5 @@ declare module 'styled-components' {
     }
     transition: string
     shadow: string
-    line: any
   }
 }

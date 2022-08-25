@@ -47,28 +47,6 @@ export const theme: DefaultTheme = {
       font-weight: 700;
     `,
   },
-  line: {
-    left: {
-      '&::before': {
-        content: '""',
-        mr: 5,
-      },
-    },
-    right: {
-      '&::after': {
-        content: '""',
-        ml: 4,
-      },
-    },
-    bottom: {
-      flexDirection: 'column',
-      '&::after': {
-        content: '""',
-        margin: '20px auto 20px auto',
-      },
-    },
-  },
-
   transition: '0.3s ease-in-out',
   shadow: '0px 0px 8px 0px',
 }

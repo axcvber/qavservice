@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Image from 'next/image'
 import { Container } from '../styles/layout/Container'
 import Box from '../styles/layout/Box'
@@ -17,7 +16,7 @@ interface IReviews {
 
 const Reviews: React.FC<IReviews> = ({ data }) => {
   return (
-    <Box id='reviews' my={{ default: 5, lg: 7 }} position='relative'>
+    <Box as='section' id='reviews' my={{ default: 5, lg: 7 }} position='relative'>
       <Container>
         <Flex
           width='100%'
@@ -51,7 +50,6 @@ const Reviews: React.FC<IReviews> = ({ data }) => {
       </Container>
       <BackgroundTitle variant='right' title={'Озывы'} />
       <BackgroundImage variant='left-bottom' />
-      <BackgroundImage variant='right-top' />
     </Box>
   )
 }

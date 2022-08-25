@@ -16,7 +16,7 @@ interface IOperators {
 
 const Operators: React.FC<IOperators> = ({ data }) => {
   return (
-    <Box id='operators' my={{ default: 5, lg: 7 }} position='relative'>
+    <Box as='section' id='operators' my={{ default: 5, lg: 7 }} position='relative'>
       <Container>
         <Flex width={1} flexDirection={'column'} alignItems={{ default: 'center', md: 'flex-start' }}>
           <Heading line={'right'} textAlign='center' mb={4} fontSize={[5, 6]}>
@@ -49,7 +49,7 @@ const Operators: React.FC<IOperators> = ({ data }) => {
         </Flex>
       </Container>
       <BackgroundTitle variant='right-vertical' title={'Операторы'} />
-      {/* <BackgroundImage variant='right-bottom' /> */}
+      <BackgroundImage variant='right-bottom' />
     </Box>
   )
 }

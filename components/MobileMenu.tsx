@@ -90,7 +90,7 @@ const MobileMenu = () => {
 export default MobileMenu
 
 const LineMenu = styled.div`
-  background-color: ${({ theme }) => theme.colors.pink};
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 2px;
   width: 100%;
   height: 2px;
@@ -120,10 +120,8 @@ const HamburgerButton = styled.button<{ menuOpen: boolean }>`
   position: relative;
   z-index: 100;
   background-color: transparent;
-  border: 2px solid ${({ theme }) => theme.colors.pink};
+  border: 2px solid ${({ theme }) => theme.colors.white};
   padding: 10px;
-  /* padding: 10px; */
-  /* border: 2px solid #fff; */
   border-radius: 50px;
 
   ${({ menuOpen }) =>

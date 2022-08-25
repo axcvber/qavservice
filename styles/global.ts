@@ -7,6 +7,7 @@ ${normalize}
 @font-face {
   font-family: 'Batman Forever Alternate Cyr';
   src: url("/fonts/batmanforeveralternatecyr.ttf");
+  font-display: swap;
 }
 
 * {

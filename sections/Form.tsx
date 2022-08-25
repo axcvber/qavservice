@@ -110,7 +110,7 @@ const Form: React.FC<IForm> = ({ services }) => {
   }
 
   return (
-    <Box id='form' my={7} position='relative'>
+    <Box as='section' id='form' my={{ default: 5, lg: 7 }} position='relative'>
       <Container>
         <Flex justifyContent='center'>
           <Heading line='bottom' mb={40}>

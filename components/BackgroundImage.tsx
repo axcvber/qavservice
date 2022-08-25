@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
-import Box from '../styles/layout/Box'
-import Heading from '../styles/layout/Heading'
 
 interface IBackgroundImage {
   variant: 'left-bottom' | 'left-top' | 'right-top' | 'right-bottom' | 'end'
@@ -55,12 +53,7 @@ const LeftBottom = styled.div`
   left: 0;
   transform: translate(-70%, 40%) rotate(190deg);
   z-index: -1;
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    transform: translate(-75%, 50%) rotate(190deg);
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    transform: translate(-75%, 10%) rotate(190deg);
-  }
+  opacity: 0.8;
 `
 
 const RightTop = styled.div`
@@ -70,12 +63,7 @@ const RightTop = styled.div`
   position: absolute;
   transform: translate(70%, -20%) rotate(70deg);
   z-index: -1;
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    transform: translate(75%, -20%) rotate(70deg);
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    transform: translate(75%, -20%) rotate(75deg);
-  }
+  opacity: 0.8;
 `
 
 const LeftTop = styled.div`
@@ -88,20 +76,22 @@ const LeftTop = styled.div`
 
 const RightBottom = styled.div`
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   position: absolute;
-  transform: translate(70%, 20%) rotate(70deg);
+  transform: translate(70%, 80%) rotate(70deg);
   z-index: -1;
+  opacity: 0.8;
 `
 
 const End = styled.div`
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   position: absolute;
-  transform: translate(70%, 40%) rotate(-60deg);
+  transform: translate(70%, 70%) rotate(-60deg);
   z-index: -1;
+  opacity: 0.8;
 `
 
 export default BackgroundImage

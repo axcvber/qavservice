@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useMediaQuery } from '../../hooks/useMediaQuery'
 import Box from '../../styles/layout/Box'
 
 interface IBGvideo {
@@ -9,11 +8,6 @@ interface IBGvideo {
 }
 
 const BGvideo: React.FC<IBGvideo> = ({ bgUrl, mobileBgUrl }) => {
-  const matches = useMediaQuery('622px')
-  console.log('matches', matches)
-
-  const videoUrl = matches ? bgUrl : mobileBgUrl
-
   return (
     <>
       <VideoBG display={{ default: 'block', md: 'none' }}>
@@ -41,6 +35,17 @@ const VideoBG = styled(Box)`
   height: 100%;
   overflow: hidden;
   z-index: -1;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, rgba(127, 67, 255, 1) 100%);
+  }
 
   video {
     position: absolute;

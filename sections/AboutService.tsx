@@ -16,7 +16,7 @@ interface IAboutService {
 
 const AboutService: React.FC<IAboutService> = ({ data }) => {
   return (
-    <Box id='about-service' my={{ default: 5, lg: 7 }} position='relative'>
+    <Box as='section' id='about-service' my={{ default: 5, lg: 7 }} position='relative'>
       <Container>
         <Flex
           width='100%'

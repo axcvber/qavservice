@@ -29,7 +29,15 @@ const GuaranteeBanner: React.FC<IGuaranteeBanner> = ({ avatarUrl, alt, nickname,
             mb={2}
             boxShadow='0 10px 20px -10px rgba(0,0,0,0.75)'
           >
-            <Image width={130} height={130} src={avatarUrl} alt={alt} />
+            <Image
+              priority
+              width={130}
+              height={130}
+              src={avatarUrl}
+              alt={alt}
+              placeholder={'blur'}
+              blurDataURL={avatarUrl}
+            />
           </Box>
           <a href={`https://t.me/${nickname.substring(1)}`} target='_blank' rel='noreferrer noopener'>
             <Text color='#37E6FE' fontSize={{ default: 'xl', md: 'lg' }} variant='link'>

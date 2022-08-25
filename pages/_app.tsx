@@ -5,8 +5,6 @@ import App from 'next/app'
 import SEO from '../components/SEO'
 import { AppProvider } from '../context/appContext'
 import React from 'react'
-import { useRouter } from 'next/router'
-import Loader from '../components/Loader'
 import Layout from '../components/Layout'
 import { GlobalDocument, GlobalQuery, Global } from '../generated'
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -38,7 +36,7 @@ MyApp.getInitialProps = async (app: AppContext) => {
   return {
     ...appProps,
     pageProps: {
-      global: data.global?.data.attributes,
+      global: data.global.data.attributes,
     },
   }
 }

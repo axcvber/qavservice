@@ -15,12 +15,7 @@ export default class MyDocument extends Document {
       const initialProps = await Document.getInitialProps(ctx)
       return {
         ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
+        styles: [initialProps.styles, sheet.getStyleElement()],
       }
     } finally {
       sheet.seal()
@@ -32,14 +27,13 @@ export default class MyDocument extends Document {
         <Head>
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link
-            href='https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Play:wght@400;700&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap'
             rel='stylesheet'
           />
         </Head>
         <body>
           <Main />
           <NextScript />
-          <div id='modal-root'></div>
         </body>
       </Html>
     )
