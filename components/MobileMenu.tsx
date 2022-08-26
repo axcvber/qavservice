@@ -1,7 +1,8 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useCycle } from 'framer-motion'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styled, { css } from 'styled-components'
+import { useAppContext } from '../hooks/useAppContext'
 import Box from '../styles/layout/Box'
 import Button from '../styles/layout/Button'
 import Flex from '../styles/layout/Flex'
@@ -9,18 +10,16 @@ import { navLinks } from './Navbar'
 import RSLink from './RSLink'
 
 const MobileMenu = () => {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen)
-  }
+  const { cmsData } = useAppContext()
+  const [isOpen, toggleOpen] = useCycle(false, true)
 
   useEffect(() => {
-    if (menuOpen) {
+    if (isOpen) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'visible'
     }
-  }, [menuOpen])
+  }, [isOpen])
 
   const menuVariants = {
     key: 'mobile-menu',
@@ -32,40 +31,43 @@ const MobileMenu = () => {
 
   return (
     <>
-      <HamburgerButton menuOpen={menuOpen} onClick={toggleMenu}>
+      <HamburgerButton menuOpen={isOpen} onClick={() => toggleOpen()}>
         <LineMenu />
         <LineMenu />
         <LineMenu />
       </HamburgerButton>
 
-      <AnimatePresence exitBeforeEnter>
-        {menuOpen && (
-          <StyledSidebar {...menuVariants}>
-            <Flex as='nav' flexDirection='column' justifyContent='center' alignItems='center' height={'100%'}>
-              <ul>
-                {navLinks.map((item, inx: number) => (
-                  <li key={inx}>
-                    <RSLink onClick={() => setMenuOpen(false)} to={item.path}>
-                      {item.title}
-                    </RSLink>
-                  </li>
-                ))}
-              </ul>
-              <RSLink to='form' onClick={() => setMenuOpen(false)}>
-                <Button>Оставить заявку</Button>
-              </RSLink>
-            </Flex>
-            <Box position={'absolute'} top={0} left={0} width='100%' height='100%' zIndex={-1}>
-              <Image priority src='/mobile-bg.jpg' layout='fill' alt='background' />
-            </Box>
-          </StyledSidebar>
-        )}
-      </AnimatePresence>
+      <StyledSidebar {...menuVariants} animate={isOpen ? menuVariants.animate : menuVariants.exit}>
+        <Flex as='nav' flexDirection='column' justifyContent='center' alignItems='center' height={'100%'}>
+          <ul>
+            {navLinks.map((item, inx: number) => (
+              <li key={inx}>
+                <RSLink onClick={() => toggleOpen()} to={item.path}>
+                  {item.title}
+                </RSLink>
+              </li>
+            ))}
+          </ul>
+          <RSLink to='form' onClick={() => toggleOpen()}>
+            <Button>Оставить заявку</Button>
+          </RSLink>
+        </Flex>
+        <Box position={'absolute'} top={0} left={0} width='100%' height='100%' zIndex={-1}>
+          <Image
+            priority
+            src={cmsData.menuBg.data.attributes.url}
+            layout='fill'
+            alt='background'
+            placeholder='blur'
+            blurDataURL={cmsData.menuBg.data.attributes.url}
+          />
+        </Box>
+      </StyledSidebar>
 
       <AnimatePresence exitBeforeEnter>
-        {menuOpen && (
+        {isOpen && (
           <motion.div
-            onClick={() => setMenuOpen(false)}
+            onClick={() => toggleOpen()}
             key='overlay-filter-bar'
             transition={{ duration: 0.2 }}
             initial={{ opacity: 0 }}

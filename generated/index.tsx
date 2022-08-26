@@ -348,6 +348,7 @@ export type Global = {
   favicon: UploadFileEntityResponse;
   googleAnalyticsTag: Scalars['String'];
   logo: UploadFileEntityResponse;
+  menuBg: UploadFileEntityResponse;
   seo: ComponentSeoSeo;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
@@ -367,6 +368,7 @@ export type GlobalInput = {
   favicon?: InputMaybe<Scalars['ID']>;
   googleAnalyticsTag?: InputMaybe<Scalars['String']>;
   logo?: InputMaybe<Scalars['ID']>;
+  menuBg?: InputMaybe<Scalars['ID']>;
   seo?: InputMaybe<ComponentSeoSeoInput>;
 };
 
@@ -1298,7 +1300,7 @@ export type UsersPermissionsUserRelationResponseCollection = {
 export type GlobalQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GlobalQuery = { __typename?: 'Query', global?: { __typename?: 'GlobalEntityResponse', data?: { __typename?: 'GlobalEntity', attributes?: { __typename?: 'Global', googleAnalyticsTag: string, logo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, favicon: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, seo: { __typename?: 'ComponentSeoSeo', metaTitle: string, metaDescription: string, keywords: string, canonicalURL: string, metaImage: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } } | null } | null } | null };
+export type GlobalQuery = { __typename?: 'Query', global?: { __typename?: 'GlobalEntityResponse', data?: { __typename?: 'GlobalEntity', attributes?: { __typename?: 'Global', googleAnalyticsTag: string, logo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, favicon: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, menuBg: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null }, seo: { __typename?: 'ComponentSeoSeo', metaTitle: string, metaDescription: string, keywords: string, canonicalURL: string, metaImage: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } } | null } | null } | null };
 
 export type PageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1322,6 +1324,14 @@ export const GlobalDocument = gql`
           data {
             attributes {
               url
+            }
+          }
+        }
+        menuBg {
+          data {
+            attributes {
+              url
+              alternativeText
             }
           }
         }

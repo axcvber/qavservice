@@ -16,6 +16,14 @@ query Global {
             }
           }
         }
+        menuBg {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
         googleAnalyticsTag
         seo {
           metaTitle
