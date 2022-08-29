@@ -37,7 +37,7 @@ const Reviews: React.FC<IReviews> = ({ data }) => {
           </Box>
           <Flex width={1} flexDirection={'column'} alignItems={{ default: 'center', sm: 'flex-start' }}>
             <Heading line={'right'} textAlign='center' mb={2} fontSize={[5, 6]}>
-              Озывы
+              Отзывы
             </Heading>
             <Text fontSize='md' mb={4} textAlign={{ default: 'center', sm: 'left' }}>
               {data.text}
