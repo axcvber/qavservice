@@ -9,11 +9,10 @@ interface IOperatorDesc {
 
 const OperatorDesc: React.FC<IOperatorDesc> = ({ nickname, desc }) => {
   return (
-    <Box width={[1]}>
+    <Box width={[1]} display='flex' flexDirection='column' alignItems={{ default: 'center', md: 'flex-start' }}>
       <Box
         as='a'
-        display='flex'
-        justifyContent={{ default: 'center', md: 'flex-start' }}
+        display='inline-flex'
         href={`https://t.me/${nickname.substring(1)}`}
         target='_blank'
         rel='noreferrer noopener'

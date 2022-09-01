@@ -20,23 +20,31 @@ const Operators: React.FC<IOperators> = ({ data }) => {
       <Container>
         <Flex width={1} flexDirection={'column'} alignItems={{ default: 'center', md: 'flex-start' }}>
           <Heading line={'right'} textAlign='center' mb={4} fontSize={[5, 6]}>
-            Операторы
+            Руководство Сервиса
           </Heading>
         </Flex>
-        <Flex flexDirection='column' gap={5}>
-          {data.operatorWidget.map((item) => (
-            <Flex
-              gap={4}
-              key={item.id}
-              alignItems={{ default: 'center', md: 'flex-start' }}
-              flexDirection={{ default: 'column', sm: 'column', md: 'row' }}
-            >
-              <OperatorAvatar
-                avatarUrl={item.avatar.data.attributes.url}
-                alt={item.avatar.data.attributes.alternativeText}
-              />
-              <OperatorDesc nickname={item.nickname} desc={item.text} />
-            </Flex>
+        <Flex flexDirection='column' gap={4}>
+          {data.operatorWidget.map((item, inx: number) => (
+            <React.Fragment key={item.id}>
+              {inx === 1 && (
+                <Flex width={1} flexDirection={'column'} alignItems={{ default: 'center', md: 'flex-start' }}>
+                  <Heading line={'right'} textAlign='center' fontSize={[5, 6]}>
+                    Операторы
+                  </Heading>
+                </Flex>
+              )}
+              <Flex
+                gap={4}
+                alignItems={{ default: 'center', md: 'flex-start' }}
+                flexDirection={{ default: 'column', sm: 'column', md: 'row' }}
+              >
+                <OperatorAvatar
+                  avatarUrl={item.avatar.data.attributes.url}
+                  alt={item.avatar.data.attributes.alternativeText}
+                />
+                <OperatorDesc nickname={item.nickname} desc={item.text} />
+              </Flex>
+            </React.Fragment>
           ))}
           <GuaranteeBanner
             avatarUrl={data.guarantorBanner.avatar.data.attributes.url}
