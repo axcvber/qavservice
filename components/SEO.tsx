@@ -43,6 +43,14 @@ const SEO: React.FC<ISEO> = ({ seo, logo, gTag, favicon }) => {
           locale: 'ru',
           url: seo.canonicalURL,
           site_name: 'Q.A.V',
+          images: [
+            {
+              url: seo.metaImage.data.attributes.url,
+              width: 400,
+              height: 400,
+              alt: seo.metaImage.data.attributes.alternativeText,
+            },
+          ],
         }}
         twitter={{
           handle: '@handle',
